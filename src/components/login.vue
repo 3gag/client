@@ -34,7 +34,7 @@ export default {
       })
         .then(({ data }) => {
           localStorage.setItem("token", data.token);
-          this.$emit("toDashboard");
+          this.$emit("tomainPage");
         })
         .catch(err => {
           Swal.fire({

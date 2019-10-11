@@ -1,29 +1,42 @@
 <template>
-  <div class="container">
-    <login
-      v-if="page === 'login'"
-      @toRegister="changePages('register')"
-      @toDashboard="changePages('dashboard')"
-    ></login>
-    <register
-      v-if="page === 'register'"
-      @toLogin="changePages('login')"
-      @toDashboard="changePages('dashboard')"
-    ></register>
-    <dashboard v-if="page === 'dashboard'"></dashboard>
+  <div>
+    <div class="container">
+      <login
+        v-if="page === 'login'"
+        @toRegister="changePages('register')"
+        @tomainPage="changePages('mainPage')"
+      ></login>
+      <register
+        v-if="page === 'register'"
+        @toLogin="changePages('login')"
+        @tomainPage="changePages('mainPage')"
+      ></register>
+      <pictureForm
+        @toPublic="changePages('mainPage')"
+        @logout="logout"
+        v-if="page === `pictureFrom`"
+      ></pictureForm>
+    </div>
+    <mainPage
+      @logout="logout"
+      @toPictureFrom="changePages('pictureFrom')"
+      v-if="page === 'mainPage'"
+    ></mainPage>
   </div>
 </template>
 
 <script>
 import login from "./components/login";
 import register from "./components/register";
-import dashboard from "./components/dashboard";
+import mainPage from "./components/mainPage";
+import pictureForm from "./components/pictureForm";
 
 export default {
   components: {
     login,
     register,
-    dashboard
+    mainPage,
+    pictureForm
   },
   data() {
     return {
@@ -33,11 +46,15 @@ export default {
   methods: {
     changePages(page) {
       this.page = page;
+    },
+    logout() {
+      localStorage.removeItem("token");
+      this.page = "login";
     }
   },
   created() {
     if (localStorage.getItem("token")) {
-      this.page = "dashboard";
+      this.page = "mainPage";
     } else {
       this.page = "login";
     }
