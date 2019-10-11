@@ -62,6 +62,7 @@
                     </div>
                     <div class="content">
                         <form action="">
+                        <h1>Title</h1>
                         <input type="text" id="pic-title">
                         <input type="file" name="pic" accept="image/*">
                         <input type="submit" value="Upload Picture">
@@ -78,7 +79,10 @@
 
 export default {
     data: function () {
-        page: 'pictureform'
+        return {
+            page: 'pictureform'
+        }
+        
     },
     methods: {
 

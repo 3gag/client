@@ -1,6 +1,6 @@
 <template>
   
- 
+<main-page></main-page>
   
 </template>
 
@@ -9,10 +9,13 @@ import mainPage from './components/mainPage'
 import pictureform from './components/pictureForm'
 export default {
     data:function() {
-        page: 'pictureform'
+      return{
+        pictures: []
+      }
+        
     },
     methods: {
-
+      
     },
     components: {
       mainPage,pictureform
