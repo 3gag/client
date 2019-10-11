@@ -21,7 +21,7 @@ export default {
         email: "",
         password: ""
       },
-      server: `http://localhost:3000`
+      server: `http://35.240.175.171`
     };
   },
   methods: {
@@ -40,7 +40,7 @@ export default {
       })
         .then(({ data }) => {
           localStorage.setItem("token", data.token);
-          this.$emit("toDashboard");
+          this.$emit("tomainPage");
         })
         .catch(err => {
           Swal.fire({
