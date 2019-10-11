@@ -18,8 +18,47 @@
 </template>
 
 <script>
+
+import axios from "axios";
+
 export default {
-    
+    data: function() {
+        return {
+            pictures: []
+        }
+    },
+    methods: {
+        readPictures() {
+              axios({
+                url: ``,
+                method: 'get'
+            })
+            .then(response => {
+                this.pictures = response.data
+            })
+             .catch(err =>{
+                if(err.response){
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: `${err.response.data.message}`
+                    })
+            
+                }
+                else if(err.request){
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: `No response from server`
+                    })
+                }
+                else {
+                    console.log(err)
+                }
+            })
+
+        }
+    }
 }
 </script>
 
@@ -29,3 +68,10 @@ export default {
 
 
 </style>
+
+
+
+
+
+
+

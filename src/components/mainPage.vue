@@ -1,31 +1,95 @@
 <template>
+<div>
     <div class="wrapper">
             <div class="top_navbar">
+                <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">3Gags</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-search"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
                 
-                <topnavbar @topnavbar="topnavbar"></topnavbar>
-               
             </div>
 
             <div class="sidebar">
 
-                <sidebar @sidebar="sidebar"></sidebar>
+                 <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-book" aria-hidden="true"></i></span>
+                            <span class="title">Publics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="far fa-images" aria-hidden="true"></i></span>
+                            <span class="title">add Picture</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-sign-out-alt" aria-hidden="true"></i></span>
+                            <span class="title">Logout</span>
+                        </a>
+                    </li>
+                </ul>
 
             </div>
 
             <div class="main_container">
+            
                 <div class="item">
-                    
+                    <div class="content-title">
+                        <h4>Title</h4>
+                    </div>
+                    <div class="content">
+                        <h2>DATA GAMBAR DISINI</h2>
+                    </div>
+                    <div class="footer-content">
+                        <a href="http://www.facebook.com/sharer.php?u=<masukin url gambar disini>" target="_blank">
+                        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+                        </a>
+                        <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <masukin url gambar disini>">
+                        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+                        </a>
+                    </div>
                 </div>
             </div>
     </div>
+</div>
 </template>
 
 <script>
-import topnavbar from './topNavbar'
-import sidebar from './sidebar'
+
 
 export default {
-  
+    data: function () {
+        
+    },
+    methods: {
+
+    },
+    components: {
+       
+    }
 }
 </script>
 

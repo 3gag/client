@@ -10,13 +10,13 @@
                     <li>
                         <a href="#">
                             <span class="icon"><i class="far fa-images" aria-hidden="true"></i></span>
-                            <span class="title">My Collections</span>
+                            <span class="title">add Picture</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <span class="icon"><i class="fas fa-cogs" aria-hidden="true"></i></span>
-                            <span class="title">Settings</span>
+                            <span class="title">Collections</span>
                         </a>
                     </li>
                     <li>
