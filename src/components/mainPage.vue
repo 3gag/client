@@ -92,7 +92,7 @@ export default {
     },
     methods: {
         readPictures() {
-            console.log("masuk")
+            console.log('masuk')
               axios({
                 url: `http://35.240.175.171/meme/findAll`,
                 method: 'GET'
