@@ -55,7 +55,6 @@
             </div>
 
             <div class="main_container">
-
                 <div class="item">
                     <div class="content-title">
                       <h4>Add New Picture</h4>
@@ -65,8 +64,7 @@
                         <h1>Title</h1>
                         <input type="text" id="pic-title">
                         <input type="file" name="pic" accept="image/*">
-                        <input type="submit" value="Upload Picture">
-                        <button @click="addData()">Submit</button>
+                        <input @click="addData()" value="Upload Picture">
                       </form>
                     </div>
                 </div>
@@ -78,7 +76,6 @@
 <script>
 import Axios from 'axios'
 
-
 export default {
     data: function () {
         return {
@@ -89,7 +86,18 @@ export default {
     methods: {
         addData() {
             Axios({
-       
+                url:`http://35.240.175.171/meme/add`,
+                methods: "POST",
+                data: {
+                    title,img
+                },
+                headers: localStorage.token
+            })
+            .then(function () {
+                console.log('success')
+            })
+            .catch(function(err) {
+                console.log(err)
             })
         }
     },

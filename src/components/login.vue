@@ -19,7 +19,7 @@ export default {
         email: "",
         password: ""
       },
-      server: `http://localhost:3000`
+      server: `http://35.240.175.171`
     };
   },
   methods: {
