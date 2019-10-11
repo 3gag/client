@@ -57,7 +57,6 @@
           </li>
         </ul>
       </div>
-
       <div class="main_container">
         <div v-for="(pic,index) in pictures" :key="index">
           <div class="item">
@@ -71,18 +70,13 @@
             </div>
             <div class="footer-content">
               <a
-                href="http://www.facebook.com/sharer.php?u=<masukin url gambar disini>"
+                :href=`http://www.facebook.com/sharer.php?u=${pic.img}`
                 target="_blank"
               >
                 <img
                   src="https://simplesharebuttons.com/images/somacro/facebook.png"
                   alt="Facebook"
                 />
-              </a>
-              <a
-                href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <masukin url gambar disini>"
-              >
-                <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
               </a>
             </div>
           </div>
@@ -135,12 +129,12 @@ export default {
     },
     toPictureFrom() {
       this.$emit("toPictureFrom");
-    },
-    created() {
-      this.readPictures();
     }
   },
-  components: {}
+  components: {},
+  created() {
+    this.readPictures();
+  }
 };
 </script>
 

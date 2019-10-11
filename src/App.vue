@@ -4,39 +4,39 @@
       <login
         v-if="page === 'login'"
         @toRegister="changePages('register')"
-        @tomainPage="changePages('mainPage')"
+        @tomainpage="changePages('mainpage')"
       ></login>
       <register
         v-if="page === 'register'"
         @toLogin="changePages('login')"
-        @tomainPage="changePages('mainPage')"
+        @tomainpage="changePages('mainpage')"
       ></register>
-      <pictureForm
-        @toPublic="changePages('mainPage')"
+      <pictureform
+        @toPublic="changePages('mainpage')"
         @logout="logout"
         v-if="page === `pictureFrom`"
-      ></pictureForm>
+      ></pictureform>
     </div>
-    <mainPage
+    <mainpage
       @logout="logout"
       @toPictureFrom="changePages('pictureFrom')"
-      v-if="page === 'mainPage'"
-    ></mainPage>
+      v-if="page === 'mainpage'"
+    ></mainpage>
   </div>
 </template>
 
 <script>
 import login from "./components/login";
 import register from "./components/register";
-import mainPage from "./components/mainPage";
-import pictureForm from "./components/pictureForm";
+import mainpage from "./components/mainPage";
+import pictureform from "./components/pictureForm";
 
 export default {
   components: {
     login,
     register,
-    mainPage,
-    pictureForm
+    mainpage,
+    pictureform
   },
   data() {
     return {
@@ -54,7 +54,7 @@ export default {
   },
   created() {
     if (localStorage.getItem("token")) {
-      this.page = "mainPage";
+      this.page = "mainpage";
     } else {
       this.page = "login";
     }
