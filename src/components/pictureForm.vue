@@ -61,10 +61,12 @@
                       <h4>Add New Picture</h4>
                     </div>
                     <div class="content">
-                        <form action="">
+                        <form >
+                        <h1>Title</h1>
                         <input type="text" id="pic-title">
                         <input type="file" name="pic" accept="image/*">
                         <input type="submit" value="Upload Picture">
+                        <button @click="addData()">Submit</button>
                       </form>
                     </div>
                 </div>
@@ -74,17 +76,28 @@
 </template>
 
 <script>
+import Axios from 'axios'
 
 
 export default {
     data: function () {
-        page: 'pictureform'
+        return {
+            
+        }
+        
     },
     methods: {
-
+        addData() {
+            Axios({
+       
+            })
+        }
     },
     components: {
         
+    },
+    created: {
+
     }
 }
 </script>
