@@ -66,9 +66,16 @@
           <div class="content">
             <form>
               <h1>Title</h1>
-              <input type="text" id="pic-title" />
-              <input type="file" name="pic" accept="image/*" />
-              <input @click="addData()" value="Upload Picture" />
+              <input type="text" v-model="title" id="pic-title" />
+              <input
+                type="file"
+                v-on:change="onChangeFileUpload($event)"
+                name="file"
+                ref="file"
+                accept="image/*"
+              />
+              <!-- <input @click="addData()" value="Upload Picture" /> -->
+              <button @click="addData()">Upload Picture</button>
             </form>
           </div>
         </div>
@@ -82,23 +89,47 @@ import Axios from "axios";
 
 export default {
   data: function() {
-    return {};
+    return {
+      title: "",
+      img: ""
+    };
   },
+
   methods: {
+    onChangeFileUpload($event) {
+      console.log("here it is");
+      // console.log($event.target.files[0]);
+      this.img = $event.target.files[0];
+      console.log(this.img);
+    },
     addData() {
+      console.log(this.img, "this is error");
+      let bodyFromData = new FormData();
+      bodyFromData.set("img", this.img);
+      bodyFromData.append("title", this.title);
+
       Axios({
         url: `http://35.240.175.171/meme/add`,
-        methods: "POST",
-        data: {
-          title,
-          img
+        method: "POST",
+        data: bodyFromData,
+        files: {
+          img: this.img
         },
-        headers: localStorage.token
+        config: {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        },
+        headers: {
+          accesstoken: localStorage.getItem("token")
+        }
       })
-        .then(function() {
+        .then(function(response) {
+          alert("Success");
           console.log("success");
         })
         .catch(function(err) {
+          alert("ini error");
           console.log(err);
         });
     },
@@ -107,9 +138,7 @@ export default {
     },
     toPublic() {
       this.$emit("toPublic");
-    },
-    components: {},
-    created: {}
+    }
   },
   components: {}
 };
